@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Playlist Player</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{--bg:#fafafa;--fg:#1a1a1a;--card:#fff;--accent:#d92b2b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121212;--fg:#eee;--card:#1e1e1e;--accent:#ff5a5a}}
+:root[data-theme="dark"]{--bg:#121212;--fg:#eee;--card:#1e1e1e;--accent:#ff5a5a}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;padding:16px;max-width:900px;margin:0 auto}
+h1{font-size:1.2rem;margin:0 0 12px}
+.player{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+a.btn{background:var(--accent);color:#fff;text-decoration:none;padding:10px 16px;border-radius:8px;font-size:.95rem}
+a.btn.alt{background:var(--card);color:var(--fg);border:1px solid var(--accent)}
+p{font-size:.85rem;opacity:.7}
+</style>
+</head>
+<body>
+<h1>▶ Cải Lương </h1>
+<div class="player">
+<iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PLB1aS6FHII0eObEOvtgu_aqZ2NLx7cE1d&amp;rel=0&amp;modestbranding=1" title="YouTube playlist" allow="accelerometer; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+</body>
+</html>
