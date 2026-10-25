@@ -2,56 +2,55 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<title>Cải Lương</title>
+<title>Playlist Player</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#070914">
 <style>
-:root{--bg:#070914;--fg:#e8ecff;--mut:#8b93b8;--a:#7c5cff;--b:#22d3ee;--c:#f472b6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%}
-body{background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden;position:relative}
-.orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:.45;z-index:0;animation:float 14s ease-in-out infinite}
-.o1{width:300px;height:300px;background:var(--a);top:-80px;left:-80px}
-.o2{width:260px;height:260px;background:var(--b);bottom:-60px;right:-60px;animation-delay:-5s}
-.o3{width:200px;height:200px;background:var(--c);top:45%;left:55%;opacity:.25;animation-delay:-9s}
-@keyframes float{50%{transform:translate(30px,-40px) scale(1.15)}}
-main{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:20px 16px 32px}
-.badge{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--b);border:1px solid rgba(34,211,238,.35);padding:6px 12px;border-radius:99px;background:rgba(34,211,238,.08)}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--b);box-shadow:0 0 10px var(--b);animation:pulse 1.6s infinite}
-@keyframes pulse{50%{opacity:.3}}
-h1{font-size:clamp(1.9rem,7vw,3rem);margin:16px 0 8px;line-height:1.1;background:linear-gradient(90deg,var(--a),var(--b),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% auto;animation:shine 6s linear infinite}
-@keyframes shine{to{background-position:200% center}}
-.sub{color:var(--mut);margin:0 0 20px;font-size:.95rem}
-.frame{padding:2px;border-radius:20px;background:linear-gradient(120deg,var(--a),var(--b),var(--c),var(--a));background-size:300% 300%;animation:bg 8s linear infinite;box-shadow:0 20px 60px rgba(124,92,255,.25)}
-@keyframes bg{to{background-position:300% 300%}}
-.glass{border-radius:18px;background:rgba(10,12,28,.85);padding:10px;backdrop-filter:blur(12px)}
-.player{position:relative;aspect-ratio:1/.85;max-height:640px;width:100%;border-radius:12px;overflow:hidden;background:#000}
+:root{--bg:#fafafa;--fg:#1a1a1a;--card:#fff;--accent:#d92b2b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121212;--fg:#eee;--card:#1e1e1e;--accent:#ff5a5a}}
+:root[data-theme="dark"]{--bg:#121212;--fg:#eee;--card:#1e1e1e;--accent:#ff5a5a}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;padding:16px;max-width:900px;margin:0 auto}
+h1{font-size:1.2rem;margin:0 0 12px}
+.player{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden}
 .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-.btn{flex:1 1 160px;text-align:center;text-decoration:none;color:var(--fg);padding:13px 16px;border-radius:12px;font-weight:600;font-size:.95rem;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);transition:.2s}
-.btn:active,.btn:hover{transform:translateY(-2px);border-color:var(--a)}
-.btn.main{background:linear-gradient(90deg,var(--a),var(--b));border:0;color:#06101a}
-footer{margin-top:22px;text-align:center;color:var(--mut);font-size:.78rem}
+.row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+a.btn{background:var(--accent);color:#fff;text-decoration:none;padding:10px 16px;border-radius:8px;font-size:.95rem}
+a.btn.alt{background:var(--card);color:var(--fg);border:1px solid var(--accent)}
+p{font-size:.85rem;opacity:.7}
 @media (orientation:landscape) and (max-height:500px){
+body{padding:0;max-width:none}
+h1{display:none}
+.player{border-radius:0;aspect-ratio:auto;height:100vh;height:100dvh}
 :root{padding:0}
-main{padding:0;max-width:none}
-.badge,h1,.sub,footer,.orb{display:none}
-.frame{padding:0;border-radius:0;animation:none}
-.glass{padding:0;border-radius:0}
-.player{aspect-ratio:auto;max-height:none;height:100vh;height:100dvh;border-radius:0}
 }
 </style>
 </head>
 <body>
-<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
-<main>
-<span class="badge"><span class="dot"></span>Đang phát</span>
-<h1>Cải Lương Việt Nam </h1>
-<p class="sub">Cải lương là một loại hình nghệ thuật kịch hát truyền thống đặc trưng của Việt Nam, hình thành và phát triển mạnh mẽ từ Nam Bộ trên nền tảng kết hợp giữa đờn ca tài tử, dân ca vùng đồng bằng sông Cửu Long... </p>
-<div class="frame"><div class="glass"><div class="player">
-<iframe src="https://pointlate.github.io/C-i-l-ng-/playlist-cailuong.html" title="Playlist" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>
-</div></div></div>
-<footer>by LTNstore</footer>
-</main>
+<h1>▶ Playlist của tôi</h1>
+<div class="player">
+<div id="yt"></div>
+</div>
+<script>
+var LIST="PLB1aS6FHII0eObEOvtgu_aqZ2NLx7cE1d",player;
+function onYouTubeIframeAPIReady(){
+ player=new YT.Player("yt",{
+  host:"https://www.youtube-nocookie.com",
+  width:"100%",height:"100%",
+  playerVars:{listType:"playlist",list:LIST,rel:0,modestbranding:1,playsinline:1},
+  events:{onReady:function(){
+   var tries=0,t=setInterval(function(){
+    var l=player.getPlaylist&&player.getPlaylist();
+    if(l&&l.length){
+     clearInterval(t);
+     var i=Math.floor(Math.random()*l.length);
+     player.cuePlaylist({listType:"playlist",list:LIST,index:i});
+     setTimeout(function(){try{player.setShuffle(true)}catch(e){}},800);
+    }else if(++tries>40){clearInterval(t)}
+   },250);
+  }}
+ });
+}
+</script>
+<script src="https://www.youtube.com/iframe_api" async></script>
 </body>
 </html>
